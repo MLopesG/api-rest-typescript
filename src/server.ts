@@ -2,17 +2,17 @@ import express, { Application} from 'express';
 import cors from 'cors';
 
 //Importar rotas
-import usuarioRoutes from './routes/usuarioRoute';
-import enderecoRoutes from './routes/enderecoRoute';
-import cidadeRoutes from './routes/cidadeRoute';
-import estadoRoutes from './routes/estadoRoute';
-import administradorRoutes from './routes/administradorRoute';
-import authRoutes from './routes/authRoute';
+import usuarioRoutes from './routes/usuario.route';
+import enderecoRoutes from './routes/endereco.route';
+import cidadeRoutes from './routes/cidade.route';
+import estadoRoutes from './routes/estado.route';
+import administradorRoutes from './routes/administrador.route';
+import authRoutes from './routes/auth.route';
 
 // Importar Autenticação
-import {validarAutenticacao} from './config/auth';
+import {validarAutenticacao} from './config/auth.config';
 
-const app: Application = express();
+export const app: Application = express();
 const port:Number = 3000;
 
 

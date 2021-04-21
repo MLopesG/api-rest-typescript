@@ -1,11 +1,11 @@
 import { Request, Response } from 'express';
-import { pool } from '../config/database';
-import { errorsFormat } from '../config/format';
-import {Administrador} from  '../models/administradorModel';
+import { pool } from '../config/database.config';
+import { errorsFormat } from '../config/format.config';
+import {Administrador} from  '../models/administrador.model';
 import {validationResult} from 'express-validator';
 import { QueryResult } from 'pg';
 import jwt from 'jsonwebtoken';
-import {chave} from '../config/secret';
+import {chave} from '../config/secret.config';
 
 export const logarAdministrador = async (req: Request, res: Response) => {
     const administradorBody: Administrador = req.body;

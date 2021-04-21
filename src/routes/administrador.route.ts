@@ -3,7 +3,7 @@ import { check } from 'express-validator';
 
 const router = Router();
 
-import { getAdministradores, salvarAdministrador, editAdministrador, deletarAdministrador } from '../controllers/administradorController';
+import { getAdministradores, salvarAdministrador, editAdministrador, deletarAdministrador } from '../controllers/administrador.controller';
 
 router.get('/', getAdministradores);
 

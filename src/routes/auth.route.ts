@@ -3,7 +3,7 @@ import { check } from 'express-validator';
 
 const router = Router();
 
-import {  logarAdministrador } from '../controllers/authController';
+import {  logarAdministrador } from '../controllers/auth.controller';
 
 router.post('/entrar',
     [

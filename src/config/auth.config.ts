@@ -1,8 +1,8 @@
 import { NextFunction, Request, Response } from 'express';
 import { QueryResult } from 'pg';
 import jwt, { decode } from 'jsonwebtoken';
-import { pool } from '../config/database';
-import { chave } from './secret';
+import { pool } from './database.config';
+import { chave } from './secret.config';
 
 export const validarAutenticacao = async (req: Request, res: Response, next: NextFunction): Promise<any> => {
     let token = req.headers['authorization'];
@@ -21,14 +21,14 @@ export const validarAutenticacao = async (req: Request, res: Response, next: Nex
 
                 if (verifyCadastro && verifyCadastro.rows.length <= 0) {
                     return await res.status(417).json({
-                        success: false,
+                        status: false,
                         message: 'Desculpe! Você não tem autorização para acessar essa REST API!'
                     });
                 }
 
                 if (err) {
                     return res.status(417).json({
-                        success: false,
+                        status: false,
                         message: 'Você não possui autorização para consumir api, token inválido.'
                     });
                 }
@@ -36,13 +36,13 @@ export const validarAutenticacao = async (req: Request, res: Response, next: Nex
             }
 
             return res.status(417).json({
-                success: false,
+                status: false,
                 message: 'Você não possui autorização para consumir api, token inválido.'
             });
         });
     } else {
         return await res.status(417).json({
-            success: false,
+            status: false,
             message: 'Você não possui autorização para consumir api.'
         });
     }

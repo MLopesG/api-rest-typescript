@@ -3,7 +3,7 @@ import { check } from 'express-validator';
 
 const router = Router();
 
-import { getEstado, salvarEstado, editEstado, deletarEstado } from '../controllers/estadoController';
+import { getEstado, salvarEstado, editEstado, deletarEstado } from '../controllers/estado.controller';
 
 router.get('/', getEstado);
 

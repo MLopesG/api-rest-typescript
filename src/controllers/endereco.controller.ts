@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
-import { pool } from '../config/database';
-import { errorsFormat } from '../config/format';
-import {Endereco} from  '../models/enderecoModel';
+import { pool } from '../config/database.config';
+import { errorsFormat } from '../config/format.config';
+import {Endereco} from  '../models/endereco.model';
 import {validationResult} from 'express-validator';
 import { QueryResult } from 'pg';
 

@@ -3,7 +3,7 @@ import { check } from 'express-validator';
 
 const router = Router();
 
-import { getEnderecos, salvarEndereco, editEndereco, deletarEndereco} from '../controllers/enderecoController';
+import { getEnderecos, salvarEndereco, editEndereco, deletarEndereco} from '../controllers/endereco.controller';
 
 router.get('/', getEnderecos);
 

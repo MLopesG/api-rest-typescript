@@ -3,7 +3,7 @@ import { check } from 'express-validator';
 
 const router = Router();
 
-import { getCidades, salvarCidade, editCidade, deletarCidade } from '../controllers/cidadeController';
+import { getCidades, salvarCidade, editCidade, deletarCidade } from '../controllers/cidade.controller';
 
 router.get('/', getCidades);
 
