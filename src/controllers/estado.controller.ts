@@ -12,7 +12,7 @@ export const getEstado = async (req: Request, res: Response): Promise<Response> 
             const responseEstado : QueryResult = await pool.query(`SELECT * FROM estado where id = ${req.query.id}`);
 
             if(responseEstado.rows.length === 0){
-                return res.status(200).json({
+                return res.status(417).json({
                     status: false,
                     message: "Desculpe, estado não encontrado!"
                 });
@@ -63,12 +63,13 @@ export const salvarEstado = async (req: Request, res: Response) => {
         });
     }
 
-    const save : QueryResult = await pool.query('INSERT INTO estado (nome, uf) VALUES ($1, $2)', Object.values(estadoBody));
+    const save : QueryResult = await pool.query('INSERT INTO estado (nome, uf) VALUES ($1, $2) returning*', Object.values(estadoBody));
 
     if(save){
         return res.status(200).json({
             status: true,
-            message: 'Estado cadastro com sucesso!'
+            message: 'Estado cadastro com sucesso!',
+            estado: save.rows[0]
         })
     }
 
@@ -91,12 +92,13 @@ export const editEstado = async (req: Request, res: Response) => {
         });
     }
     
-    const saveEdit : QueryResult = await pool.query(`update estado set nome = $1, uf = $2 WHERE id = ${req.params.id}`, Object.values(estadoBody));
+    const saveEdit : QueryResult = await pool.query(`update estado set nome = $1, uf = $2 WHERE id = ${req.params.id} returning*`, Object.values(estadoBody));
 
     if(saveEdit){
         return res.status(200).json({
             status: true,
-            message: 'Estado alterado com sucesso!'
+            message: 'Estado alterado com sucesso!',
+            estado: saveEdit.rows[0]
         })
     }
     

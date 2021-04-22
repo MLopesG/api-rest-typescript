@@ -11,7 +11,7 @@ export const getUsuarios = async (req: Request, res: Response): Promise<Response
             const response: QueryResult = await pool.query(`SELECT * FROM usuario  where id = ${req.query.id}`);
 
             if(response.rows.length === 0){
-                return res.status(200).json({
+                return res.status(417).json({
                     status: false,
                     message: "Desculpe, usuário não foi encontrado!"
                 });
@@ -67,12 +67,13 @@ export const salvarUsuario = async (req: Request, res: Response) => {
         });
     }
 
-    const save : QueryResult = await pool.query('INSERT INTO usuario (nome, telefone, email, idade, peso, etinia) VALUES ($1, $2, $3, $4, $5, $6)', Object.values(usuarioBody));
+    const save : QueryResult = await pool.query('INSERT INTO usuario (nome, telefone, email, idade, peso, etinia) VALUES ($1, $2, $3, $4, $5, $6) returning*', Object.values(usuarioBody));
 
     if(save){
         return res.status(200).json({
             status: true,
-            message: 'Usuário cadastro com sucesso!'
+            message: 'Usuário cadastro com sucesso!',
+            usuario: save.rows[0]
         })
     }
 
@@ -95,12 +96,13 @@ export const editUsuario = async (req: Request, res: Response) => {
         });
     }
 
-    const saveEdit : QueryResult = await pool.query(`update usuario set nome = $1, telefone = $2, email = $3, idade = $4, peso = $5, etinia = $6 WHERE id = ${req.params.id}`, Object.values(usuarioBody));
+    const saveEdit : QueryResult = await pool.query(`update usuario set nome = $1, telefone = $2, email = $3, idade = $4, peso = $5, etinia = $6 WHERE id = ${req.params.id} returning*`, Object.values(usuarioBody));
 
     if(saveEdit){
         return res.status(200).json({
             status: true,
-            message: 'Usuário alterado com sucesso!'
+            message: 'Usuário alterado com sucesso!',
+            usuario: saveEdit.rows[0]
         })
     }
     

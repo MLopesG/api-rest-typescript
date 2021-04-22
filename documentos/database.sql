@@ -44,3 +44,5 @@ CREATE TABLE endereco (
   foreign key(usuario_id) references usuario(id),
   foreign key(cidade_id) references cidade(id)
 );
+
+insert into administrador values(0, 'Teste', '000.000.000-10',md5('Marc9951'));

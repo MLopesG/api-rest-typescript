@@ -13,8 +13,6 @@ import authRoutes from './routes/auth.route';
 import {validarAutenticacao} from './config/auth.config';
 
 export const app: Application = express();
-const port:Number = 3000;
-
 
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
@@ -31,7 +29,3 @@ app.use('/api/v1/estados', validarAutenticacao, estadoRoutes);
 app.use('/api/v1/administradores', validarAutenticacao, administradorRoutes);
 //Rotas públicas
 app.use('/api/v1/auth', authRoutes);
-
-app.listen(port, () => {
-    console.log(`Servidor rodando na porta: ${port}`);
-});

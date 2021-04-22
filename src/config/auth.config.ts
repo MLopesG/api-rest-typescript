@@ -20,14 +20,14 @@ export const validarAutenticacao = async (req: Request, res: Response, next: Nex
                 const verifyCadastro: QueryResult = await pool.query(`select * from administrador where cpf ='${decoded.data.cpf}'`);
 
                 if (verifyCadastro && verifyCadastro.rows.length <= 0) {
-                    return await res.status(417).json({
+                    return await res.status(401).json({
                         status: false,
                         message: 'Desculpe! Você não tem autorização para acessar essa REST API!'
                     });
                 }
 
                 if (err) {
-                    return res.status(417).json({
+                    return res.status(401).json({
                         status: false,
                         message: 'Você não possui autorização para consumir api, token inválido.'
                     });
@@ -35,13 +35,13 @@ export const validarAutenticacao = async (req: Request, res: Response, next: Nex
                 return await next();
             }
 
-            return res.status(417).json({
+            return res.status(401).json({
                 status: false,
                 message: 'Você não possui autorização para consumir api, token inválido.'
             });
         });
     } else {
-        return await res.status(417).json({
+        return await res.status(401).json({
             status: false,
             message: 'Você não possui autorização para consumir api.'
         });

@@ -2,10 +2,10 @@
   "name": "teste-pr",
   "version": "1.0.0",
   "description": "",
-  "main": "dist/server.js",
+  "main": "dist/index.js",
   "scripts": {
-    "start": "tsc && nodemon dist/server.js",
-    "test": " jest"
+    "start": "tsc && nodemon dist/index.js",
+    "test": "jest"
   },
   "keywords": [],
   "author": "",
@@ -35,7 +35,6 @@
   "jest": {
     "moduleFileExtensions": [
       "ts",
-      "tsx",
       "js"
     ],
     "transform": {
@@ -47,7 +46,7 @@
       }
     },
     "testMatch": [
-      "**/src/__tests__/*.+(ts|tsx|js)"
+      "**/src/tests/*.+(ts|js)"
     ]
   }
 }

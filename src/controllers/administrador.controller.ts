@@ -11,7 +11,7 @@ export const getAdministradores = async (req: Request, res: Response): Promise<R
             const response: QueryResult = await pool.query(`SELECT * FROM administrador  where id = ${req.query.id}`);
 
             if(response.rows.length === 0){
-                return res.status(200).json({
+                return res.status(417).json({
                     status: false,
                     message: "Desculpe, Administrador não foi encontrado!"
                 });
@@ -66,12 +66,13 @@ export const salvarAdministrador = async (req: Request, res: Response) => {
         });
     }
 
-    const save : QueryResult = await pool.query('INSERT INTO administrador (nome, cpf, senha) VALUES ($1, $2, md5($3))', Object.values(administradorBody));
+    const save : QueryResult = await pool.query('INSERT INTO administrador (nome, cpf, senha) VALUES ($1, $2, md5($3)) returning*', Object.values(administradorBody));
 
     if(save){
         return res.status(200).json({
             status: true,
-            message: 'Administrador cadastrado com sucesso!'
+            message: 'Administrador cadastrado com sucesso!',
+            administrador: save.rows[0]
         })
     }
 
@@ -94,12 +95,13 @@ export const editAdministrador= async (req: Request, res: Response) => {
         });
     }
 
-    const saveEdit : QueryResult = await pool.query(`update administrador set nome = $1, cpf = $2, senha = md5($3) WHERE id = ${req.params.id}`, Object.values(administradorBody));
+    const saveEdit : QueryResult = await pool.query(`update administrador set nome = $1, cpf = $2, senha = md5($3) WHERE id = ${req.params.id} returning*`, Object.values(administradorBody));
 
     if(saveEdit){
         return res.status(200).json({
             status: true,
-            message: 'Administrador alterado com sucesso!'
+            message: 'Administrador alterado com sucesso!',
+            administrador: saveEdit.rows[0]
         })
     }
     

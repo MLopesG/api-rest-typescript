@@ -12,7 +12,7 @@ export const getEnderecos = async (req: Request, res: Response): Promise<Respons
             const responseEndereco : QueryResult = await pool.query(`SELECT * from endereco where id = ${req.query.id}`);
 
             if(responseEndereco.rows.length === 0){
-                return res.status(200).json({
+                return res.status(417).json({
                     status: false,
                     message: "Desculpe, Endereço não encontrado!"
                 });
@@ -58,12 +58,13 @@ export const salvarEndereco = async (req: Request, res: Response) => {
         });
     }
 
-    const save : QueryResult = await pool.query('INSERT INTO endereco (endereco,numero,complemento,cep,cidade_id,usuario_id) VALUES ($1, $2, $3, $4, $5, $6)', Object.values(enderecoBody));
+    const save : QueryResult = await pool.query('INSERT INTO endereco (endereco,numero,complemento,cep,cidade_id,usuario_id) VALUES ($1, $2, $3, $4, $5, $6) returning*', Object.values(enderecoBody));
 
     if(save){
         return res.status(200).json({
             status: true,
-            message: 'Endereço cadastrado com sucesso!'
+            message: 'Endereço cadastrado com sucesso!',
+            endereco: save.rows[0]
         })
     }
 
@@ -86,12 +87,13 @@ export const editEndereco = async (req: Request, res: Response) => {
         });
     }
     
-    const saveEdit : QueryResult = await pool.query(`UPDATE endereco set endereco = $1,numero  = $2,complemento  = $3,cep  = $4,cidade_id  = $5,usuario_id  = $6 where id = ${req.params.id}`, Object.values(enderecoBody));
+    const saveEdit : QueryResult = await pool.query(`UPDATE endereco set endereco = $1,numero  = $2,complemento  = $3,cep  = $4,cidade_id  = $5,usuario_id  = $6 where id = ${req.params.id} returning*`, Object.values(enderecoBody));
 
     if(saveEdit){
         return res.status(200).json({
             status: true,
-            message: 'Endereço alterado com sucesso!'
+            message: 'Endereço alterado com sucesso!',
+            endereco: saveEdit.rows[0]
         })
     }
     

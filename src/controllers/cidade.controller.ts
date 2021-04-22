@@ -11,7 +11,7 @@ export const getCidades = async (req: Request, res: Response): Promise<Response>
             const responseCidade : QueryResult = await pool.query(`SELECT id, nome FROM cidade where id = ${req.query.id}`);
 
             if(responseCidade.rows.length === 0){
-                return res.status(200).json({
+                return res.status(417).json({
                     status: false,
                     message: "Desculpe, cidade não encontrado!"
                 });
@@ -79,12 +79,13 @@ export const salvarCidade = async (req: Request, res: Response) => {
         });
     }
 
-    const save : QueryResult = await pool.query('INSERT INTO cidade (nome, estado_id) VALUES ($1, $2)', Object.values(cidadeBody));
+    const save : QueryResult = await pool.query('INSERT INTO cidade (nome, estado_id) VALUES ($1, $2)  returning*', Object.values(cidadeBody));
 
     if(save){
         return res.status(200).json({
             status: true,
-            message: 'Cidade foi cadastrada com sucesso!'
+            message: 'Cidade foi cadastrada com sucesso!',
+            cidade: save.rows[0]
         })
     }
 
@@ -107,12 +108,13 @@ export const editCidade = async (req: Request, res: Response) => {
         });
     }
     
-    const saveEdit : QueryResult = await pool.query(`update cidade set nome = $1, estado_id = $2 WHERE id = ${req.params.id}`, Object.values(cidadeBody));
+    const saveEdit : QueryResult = await pool.query(`update cidade set nome = $1, estado_id = $2 WHERE id = ${req.params.id} returning*`, Object.values(cidadeBody));
 
     if(saveEdit){
         return res.status(200).json({
             status: true,
-            message: 'Cidade alterado com sucesso!'
+            message: 'Cidade alterado com sucesso!',
+            cidade: saveEdit.rows[0]
         })
     }
     
