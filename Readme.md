@@ -94,7 +94,9 @@ $ npm start
 
 Você pode acessar aplicação na URL:
 
-Servidor [REST API](http://localhost:3000/) 
+```url
+  http://localhost:3000/
+```
 
 Você já pode acessar aplicação. Pórem, será necessário utilizar o software ou extensão chamado "Postman", para testar os endpoint da aplicação.
 
