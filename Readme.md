@@ -1,5 +1,5 @@
 
-# Rest API Express.js, Node.js, Typescript e Postgres 
+# Rest API Express.js, Node.js, Typescript e Postgres.
 
 ## Instalações
 
@@ -22,7 +22,7 @@ $  npm install --save-dev jest
 
 ### Criando o banco de dados
 
-Crie um database no SGBD postgres, e execute o seguinte script para criação das tabelas da aplicação
+Crie um database no SGBD postgres, e execute o seguinte script para criação das tabelas da aplicação.
 
 
 ```sql
@@ -78,7 +78,7 @@ insert into administrador values(0, 'Teste', '000.000.000-10',md5('Marc9951'));
 
 ### Configurando conexão com banco de dados
 
-Para configurar a conexão com banco de dados, você precisar ir na pasta 'src/config' no arquivo 'database.config.ts'
+Para configurar a conexão com banco de dados, você precisar ir na pasta 'src/config' no arquivo 'database.config.ts'.
 
 ```js
     user: 'postgres',
@@ -132,7 +132,7 @@ $ npm jest
 
 ### Observação
 
-Após obter o token de acesso, não esqueça de enviar no headers da sua requisição
+Após obter o token de acesso, não esqueça de enviar no headers da sua requisição.
 
 ```json
     {
