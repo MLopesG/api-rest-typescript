@@ -137,7 +137,7 @@ Após obter o token de acesso, não esqueça de enviar no headers da sua requisi
 ```json
     {
         "Authorization": "Bearer <TOKEN>",
-        "Content-Type":application/json"
+        "Content-Type":"application/json"
     }
 ```
 
