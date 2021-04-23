@@ -120,65 +120,60 @@ $ npm jest
 
 ## Modulo Autenticação - Obter token de acesso
     - Obter token de autenticação 
-        - *(POST)* 'api/v1/auth/entrar' 
+        - (POST) 'api/v1/auth/entrar' 
     
         Exemplo de envio: 
 
-         ```json
-            {
-                cpf: "000.000.000-10",
-                senha: "Marc9951"
-            }
-        ```
+        {
+            cpf: "000.000.000-10",
+            senha: "Marc9951"
+        }
+        
 
         Exemplo de retorno: 
 
-         ```json
-            {
-                status: true,
-                token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MTkxNDU5OTMsImRhdGEiOnsiaWQiOjAsIm5vbWUiOiJNYXJjb3MiLCJjcGYiOiIwMDAuMDAwLjAwMC0xMCJ9LCJpYXQiOjE2MTkxNDIzOTN9.S4R5akIdcWc8K6ax6MvikDFzbHZlX_HD8gYdHVs3nAI",
-                administrador: {
-                    id: 0,
-                    nome: "Marcos",
-                    cpf: "000.000.000-10"
-                }
+        {
+            status: true,
+            token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MTkxNDU5OTMsImRhdGEiOnsiaWQiOjAsIm5vbWUiOiJNYXJjb3MiLCJjcGYiOiIwMDAuMDAwLjAwMC0xMCJ9LCJpYXQiOjE2MTkxNDIzOTN9.S4R5akIdcWc8K6ax6MvikDFzbHZlX_HD8gYdHVs3nAI",
+            administrador: {
+                id: 0,
+                nome: "Marcos",
+                cpf: "000.000.000-10"
             }
-        ```
+        }
+        
         
 ### Modulo usuário
     - Usuários (Listar todos os usuários)
-        - *(GET)* 'api/v1/usuarios'
+        - (GET) 'api/v1/usuarios'
     - Obter informações de uma usuário especifico via "ID" (Irá trazer um único registro)
-        - *(GET)* 'api/v1/usuarios?id=1' 
+        - (GET) 'api/v1/usuarios?id=1' 
     - Cadastrar novo usuário
-        - *(POST)* 'api/v1/usuarios/salvar' 
+        - (POST) 'api/v1/usuarios/salvar' 
 
         Exemplo de envio body:
 
-        ```json
-            {
-                nome: "Marcos",
-                telefone: "(67) 99667 - 8725",
-                email: "marcoslopesg7@gmail.com",
-                idade: 21,
-                peso: 64,
-                etinia: "Pardo",
-            };
-        ```
+        {
+            nome: "Marcos",
+            telefone: "(67) 99667 - 8725",
+            email: "marcoslopesg7@gmail.com",
+            idade: 21,
+            peso: 64,
+            etinia: "Pardo",
+        };
+    
     - Alterar informaçõe de cadastro do usuário
-        - *(PUT)* 'api/v1/usuarios/edit/:id_do_usuario' 
+        - (PUT) 'api/v1/usuarios/edit/:id_do_usuario' 
 
         Exemplo de envio body:
-
-        ```json
-            {
-                nome: "Marcos",
-                telefone: "(67) 99667 - 8725",
-                email: "marcoslopesg7@gmail.com",
-                idade: 21,
-                peso: 64,
-                etinia: "Pardo",
-            };
-        ```
+        {
+            nome: "Marcos",
+            telefone: "(67) 99667 - 8725",
+            email: "marcoslopesg7@gmail.com",
+            idade: 21,
+            peso: 64,
+            etinia: "Pardo",
+        };
+        
     - Deletar usuário da base de dados
-        - *(DELETE)* 'api/v1/usuarios/deletar/:id_do_usuario' 
+        - (DELETE) 'api/v1/usuarios/deletar/:id_do_usuario' 
