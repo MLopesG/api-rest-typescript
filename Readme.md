@@ -8,6 +8,18 @@
 Baixar Node.js [Node.js](https://nodejs.org/en/) <br/>
 Baixar Postgres [Postgres](https://www.enterprisedb.com/downloads/postgres-postgresql-downloads) 
 
+Instalar o Typescript
+
+```bash
+$  npm install typescript --save-dev
+```
+
+Instalar o Jest
+
+```bash
+$  npm install --save-dev jest
+```
+
 ### Criando o banco de dados
 
 Crie um database no SGBD postgres, e execute o seguinte script para criação das tabelas da aplicação
@@ -116,7 +128,18 @@ $ npm jest
 ![Exemplo tela](./tela_teste_exemplo.PNG)
 
 
-## Controller e Rotas(endpoints) da aplicação
+## Controllers e Routes(endpoints)
+
+### Observação
+
+Após obter o token de acesso, não esqueça de enviar no headers da sua requisição
+
+```json
+    {
+        Authorization: "Bearer <TOKEN>",
+        Content-Type:" application/json"
+    }
+```
 
 ## Controller Auth(Autenticação)
     - Obter token de autenticação 
@@ -264,7 +287,7 @@ $ npm jest
     - Deletar cidade da base de dados
         - (DELETE) 'api/v1/cidades/deletar/:id_da_cidade' 
 
-### Controller Endereco
+### Controller Endereço
     - Endereços (Listar todos endereços)
         - (GET) 'api/v1/enderecos'
     - Obter informações de um endereço especifico via "ID" (Irá trazer um único registro)
