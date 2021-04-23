@@ -1,14 +1,14 @@
 
 ## Instalação
 
-### Ambiente desenvolvimento
+### Ambiente para desenvolvimento
 
-Node.js > 12 [Node.js](https://nodejs.org/en/) 
+Node.js > 12 [Node.js](https://nodejs.org/en/) \n
 Postgres > 10 [Postgres](https://www.enterprisedb.com/downloads/postgres-postgresql-downloads) 
 
 ### Criando o banco de dados
 
-Crie um database no SGBD postgres e execute o seguinte script para criação das tabelas da aplicação
+Crie um database no SGBD postgres, e execute o seguinte script para criação das tabelas da aplicação
 
 
 ```sql
@@ -74,7 +74,7 @@ Para configurar a conexão com banco de dados, você precisar ir na pasta 'src/c
     port: 5433
 ```
 
-informe o nome do seu database, e os dados de conexão do seu database.
+informe o nome do seu database e os dados de conexão do seu database.
 
 ## Executando aplicação
 
@@ -97,7 +97,7 @@ Você já pode acessar aplicação. Pórem, será necessário utilizar o softwar
 Postman [Postman](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop?hl=pt-BR) 
 
 
-## Executando testes Jest.js da aplicação REST API
+## Executando testes automatizados da aplicação REST API
 
 Para rodar os teste automatizados, execute o seguinte comando:
 
@@ -105,4 +105,4 @@ Para rodar os teste automatizados, execute o seguinte comando:
 $ npm jest
 ```
 
-[![Exemplo tela](/.tela_teste_exemplo.PNG)]
+[![Exemplo tela](./tela_teste_exemplo.PNG)]
