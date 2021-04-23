@@ -92,6 +92,10 @@ Ao finalizar o processo de instalação das dependencias, execute o comando para
 $ npm start
 ```
 
+Você pode acessar aplicação na URL:
+
+Servidor [REST API](http://localhost:3000/) 
+
 Você já pode acessar aplicação. Pórem, será necessário utilizar o software ou extensão chamado "Postman", para testar os endpoint da aplicação.
 
 Baixar Postman [Postman](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop?hl=pt-BR) 
@@ -105,4 +109,4 @@ Para rodar os teste automatizados, execute o seguinte comando:
 $ npm jest
 ```
 
-[Exemplo tela](./tela_teste_exemplo.PNG)
+[![Exemplo tela](./tela_teste_exemplo.PNG)]
