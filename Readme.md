@@ -1,9 +1,9 @@
 
 # Rest API Express.js, Node.js, Typescript e Postgres.
 
-## Instalações
+## Instalações.
 
-### Ambiente para desenvolvimento
+### Ambiente para desenvolvimento.
 
 Baixar Node.js [Node.js](https://nodejs.org/en/) <br/>
 Baixar Postgres [Postgres](https://www.enterprisedb.com/downloads/postgres-postgresql-downloads) 
@@ -20,7 +20,7 @@ Instalar o Jest
 $  npm install --save-dev jest
 ```
 
-### Criando o banco de dados
+### Criando o banco de dados.
 
 Crie um database no SGBD postgres, e execute o seguinte script para criação das tabelas da aplicação.
 
@@ -76,7 +76,7 @@ CREATE TABLE endereco (
 insert into administrador values(0, 'Teste', '000.000.000-10',md5('Marc9951'));
 ```
 
-### Configurando conexão com banco de dados
+### Configurando conexão com banco de dados.
 
 Para configurar a conexão com banco de dados, você precisar ir na pasta 'src/config' no arquivo 'database.config.ts'.
 
@@ -90,7 +90,7 @@ Para configurar a conexão com banco de dados, você precisar ir na pasta 'src/c
 
 informe o nome do seu database e os dados de conexão do seu database.
 
-## Executando aplicação
+## Executando aplicação.
 
 Para executar à aplicação, você precisa instalar as dependencias.
 
@@ -117,7 +117,7 @@ Você já pode acessar aplicação. Pórem, será necessário utilizar o softwar
 Baixar Postman [Postman](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop?hl=pt-BR) 
 
 
-## Executando testes automatizados da aplicação REST API
+## Executando testes automatizados da aplicação REST API.
 
 Para rodar os teste automatizados, execute o seguinte comando:
 
@@ -128,9 +128,9 @@ $ npm jest
 ![Exemplo tela](./tela_teste_exemplo.PNG)
 
 
-## Controllers e Routes(endpoints)
+## Controllers e Routes(endpoints).
 
-### Observação
+### Observação.
 
 Após obter o token de acesso, não esqueça de enviar no headers da sua requisição.
 
@@ -141,7 +141,7 @@ Após obter o token de acesso, não esqueça de enviar no headers da sua requisi
     }
 ```
 
-## Controller Auth(Autenticação)
+## Controller Auth(Autenticação).
     - Obter token de autenticação 
         - (POST) 'api/v1/auth/entrar' 
     
@@ -165,7 +165,7 @@ Após obter o token de acesso, não esqueça de enviar no headers da sua requisi
         }
         
 
-### Controller Administrador
+### Controller Administrador.
     - Administradores (Listar todos administradores)
         - (GET) 'api/v1/administradores'
     - Obter informações de um administrador especifico via "ID" (Irá trazer um único registro)
@@ -194,7 +194,7 @@ Após obter o token de acesso, não esqueça de enviar no headers da sua requisi
     - Deletar cadastro do administrador da base de dados
         - (DELETE) 'api/v1/administradores/deletar/:id_do_administrador' 
         
-### Controller Usuário
+### Controller Usuário.
     - Usuários (Listar todos os usuários)
         - (GET) 'api/v1/usuarios'
     - Obter informações de uma usuário especifico via "ID" (Irá trazer um único registro)
@@ -229,7 +229,7 @@ Após obter o token de acesso, não esqueça de enviar no headers da sua requisi
     - Deletar usuário da base de dados
         - (DELETE) 'api/v1/usuarios/deletar/:id_do_usuario' 
 
-### Controller Estado
+### Controller Estado.
     - Estados (Listar todos os estados)
         - (GET) 'api/v1/estados'
     - Obter informações do estado especifico via "ID", trazendo todas as cidades relacionadas com esse estado.
@@ -258,7 +258,7 @@ Após obter o token de acesso, não esqueça de enviar no headers da sua requisi
         - (DELETE) 'api/v1/estados/deletar/:id_do_estado' 
       
 
-### Controller Cidade
+### Controller Cidade.
     - Cidades (Listar todas cidades)
         - (GET) 'api/v1/cidades'
     - Obter informações de uma cidade especifica via "ID" (Irá trazer um único registro)
@@ -287,7 +287,7 @@ Após obter o token de acesso, não esqueça de enviar no headers da sua requisi
     - Deletar cidade da base de dados
         - (DELETE) 'api/v1/cidades/deletar/:id_da_cidade' 
 
-### Controller Endereço
+### Controller Endereço.
     - Endereços (Listar todos endereços)
         - (GET) 'api/v1/enderecos'
     - Obter informações de um endereço especifico via "ID" (Irá trazer um único registro)
