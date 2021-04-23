@@ -20,6 +20,20 @@ Instalar o Jest
 $  npm install --save-dev jest
 ```
 
+### Baixar Projeto do gitlab ou github
+
+GitLab
+
+```bash
+$ git clone https://gitlab.com/MLopesG/desenvolvedor-backend-creative-code.git
+```
+
+GitHub
+
+```bash
+$ git clone https://github.com/MLopesG/desenvolvedor-backend-creative-code.git
+```
+
 ### Criando o banco de dados.
 
 Crie um database no SGBD postgres, e execute o seguinte script para criação das tabelas da aplicação.
