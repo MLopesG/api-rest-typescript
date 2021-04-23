@@ -3,8 +3,8 @@
 
 ### Ambiente para desenvolvimento
 
-Node.js > 12 [Node.js](https://nodejs.org/en/) \n
-Postgres > 10 [Postgres](https://www.enterprisedb.com/downloads/postgres-postgresql-downloads) 
+Baixar Node.js[Node.js](https://nodejs.org/en/) <br/>
+Baixar Postgres[Postgres](https://www.enterprisedb.com/downloads/postgres-postgresql-downloads) 
 
 ### Criando o banco de dados
 
@@ -94,7 +94,7 @@ $ npm start
 
 Você já pode acessar aplicação. Pórem, será necessário utilizar o software ou extensão chamado "Postman", para testar os endpoint da aplicação.
 
-Postman [Postman](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop?hl=pt-BR) 
+Baixar Postman [Postman](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop?hl=pt-BR) 
 
 
 ## Executando testes automatizados da aplicação REST API
@@ -105,4 +105,4 @@ Para rodar os teste automatizados, execute o seguinte comando:
 $ npm jest
 ```
 
-[![Exemplo tela](./tela_teste_exemplo.PNG)]
+[Exemplo tela](./tela_teste_exemplo.PNG)
